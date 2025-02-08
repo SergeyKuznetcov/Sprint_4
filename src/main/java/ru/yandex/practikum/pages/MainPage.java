@@ -11,6 +11,10 @@ public class MainPage {
 
     private WebDriver webDriver;
 
+    //Логотип Самокат
+    private final By scooterLogo = By.className("Header_LogoScooter__3lsAR");
+    //Логотип Yandex
+    private final By yandexLogo = By.className("Header_LogoYandex__3TSOI");
     //Кнопка "Принять куки"
     private final By acceptCookieButton = By.id("rcc-confirm-button");
     //Верхняя кнопка "Заказать"
@@ -21,6 +25,14 @@ public class MainPage {
     public static MainPage openMainPage(WebDriver webDriver) {
         webDriver.get(BASE_URL);
         return new MainPage(webDriver);
+    }
+
+    public void clickScooterLogo() {
+        webDriver.findElement(scooterLogo).click();
+    }
+
+    public void clickYandexLogo() {
+        webDriver.findElement(yandexLogo).click();
     }
 
     public void clickAcceptCookieButton() {
