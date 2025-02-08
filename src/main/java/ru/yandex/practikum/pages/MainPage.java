@@ -1,9 +1,7 @@
 package ru.yandex.practikum.pages;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 import static ru.yandex.practikum.EnvConfig.BASE_URL;

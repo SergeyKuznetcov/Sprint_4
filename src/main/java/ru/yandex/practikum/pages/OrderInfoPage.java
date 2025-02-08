@@ -1,7 +1,6 @@
 package ru.yandex.practikum.pages;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -55,7 +54,7 @@ public class OrderInfoPage {
         webDriver.findElement(dateField).click();
     }
 
-    public String getOrderStatus(){
+    public String getOrderStatus() {
         return webDriver.findElement(orderStatusPlane).getText();
     }
 
@@ -72,7 +71,7 @@ public class OrderInfoPage {
         colours.forEach(colour -> webDriver.findElement(By.id(colour.name().toLowerCase())).click());
     }
 
-    public void fillOrderInfo(String rentDuration, List<ScooterColours> colours, String comment) {
+    public void fillOrderInfo(List<ScooterColours> colours, String comment) {
         chooseRandomDeliveryDay();
         chooseRandomRentDuration();
         clickColorCheckBoxes(colours);

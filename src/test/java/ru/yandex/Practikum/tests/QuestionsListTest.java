@@ -17,8 +17,8 @@ import ru.yandex.practikum.pages.QuestionsPage;
 import java.time.Duration;
 import java.util.Map;
 
-import static ru.yandex.practikum.constants.Constants.QUESTIONS_AND_EXPECTED_ANSWERS;
 import static ru.yandex.practikum.EnvConfig.EXPLICIT_WAIT;
+import static ru.yandex.practikum.constants.Constants.QUESTIONS_AND_EXPECTED_ANSWERS;
 
 @Slf4j
 public class QuestionsListTest {
@@ -26,7 +26,7 @@ public class QuestionsListTest {
     public static DriverRule driverRule = new DriverRule();
 
     @BeforeClass
-    public static void acceptCookie(){
+    public static void acceptCookie() {
         MainPage.openMainPage(driverRule.getWebDriver()).clickAcceptCookieButton();
     }
 
@@ -47,8 +47,7 @@ public class QuestionsListTest {
 
             Assert.assertTrue("Unexpected question text \"" + questionText + "\"",
                     QUESTIONS_AND_EXPECTED_ANSWERS.containsKey(questionText));
-            Assert.assertTrue("Unexpected answer text \"" + answerText + "\" for question text \"" + questionText + "\"",
-                    answerText.equals(QUESTIONS_AND_EXPECTED_ANSWERS.get(questionText)));
+            Assert.assertEquals("Unexpected answer text \"" + answerText + "\" for question text \"" + questionText + "\"", answerText, QUESTIONS_AND_EXPECTED_ANSWERS.get(questionText));
 
         });
     }

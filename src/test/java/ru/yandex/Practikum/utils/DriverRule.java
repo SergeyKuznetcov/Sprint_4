@@ -17,7 +17,7 @@ public class DriverRule extends ExternalResource {
     private WebDriver webDriver;
 
     @Override
-    protected void before() throws Throwable {
+    protected void before() {
         initDriver();
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(EnvConfig.IMPLICIT_WAIT));
     }
@@ -28,7 +28,7 @@ public class DriverRule extends ExternalResource {
     }
 
     public void initDriver() {
-        if ("firefox".equalsIgnoreCase(System.getProperty("browser"))){
+        if ("firefox".equalsIgnoreCase(System.getProperty("browser"))) {
             startUpFireFoxDriver();
         } else {
             startUpChromeDriver();
@@ -45,7 +45,7 @@ public class DriverRule extends ExternalResource {
     public void startUpFireFoxDriver() {
         WebDriverManager.firefoxdriver().setup();
         FirefoxOptions options = new FirefoxOptions();
-//        options.addArguments("--no-sandbox", "--headless", "--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox", "--headless", "--disable-dev-shm-usage");
         this.webDriver = new FirefoxDriver(options);
     }
 }
